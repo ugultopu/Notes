@@ -1,3 +1,5 @@
 Git is fundamentally a content-addressable filesystem with a VCS user interface written on top of it.
 
+In the early days of Git (mostly pre 1.5), the user interface was much more complex because it emphasized this filesystem rather than a polished VCS. In the last few years, the UI has been refined until it’s as clean and easy to use as any system out there; however, the stereotype lingers about the early Git UI that was complex and difficult to learn.
+
 Source: https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain
