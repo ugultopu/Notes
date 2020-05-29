@@ -43,7 +43,7 @@ As you can observe, since Git stores a snapshot of all files on each commit, the
 
 So how does this makes sense? How come Git is so inefficient, yet arguably the most popular version control system now? Well, Git uses delta compression (the "differential" storage mechanism) when we push the changes to a remote over the network. Git does this so that the changes are transmitted as fast as possible, and stored "on the server" as efficiently as possible. It is not a big deal to "not be efficient" (storage-wise) on the development machine, because not being efficient (storage-wise) on the development machine actually helps with performance (almost instant commit speed, almost instant comparisons, etc).
 
-The way Git finds a commit is through branches, through the "references" (https://youtu.be/ZDR433b0HJY?t=2131)
+The way Git finds a commit is through branches, through the "references" (https://youtu.be/ZDR433b0HJY?t=2131). The ".git/refs/heads/" directory has all the references to all the branches of the repository. Accordingly, if you wanted to create a branch (which points at a specific commit), you can really just run `echo ABCDEFG > .git/refs/heads/name-of-your-custom-branch`, where `ABCDEFG` represents the checksum (SHA-1) of the commit that you want the branch named `name-of-your-custom-branch` to point to. (Source: https://youtu.be/ZDR433b0HJY?t=2143)
 
 Source: This [awesome video][Scott Chacon Video Presentation] presentation by Scott Chacon.
 
