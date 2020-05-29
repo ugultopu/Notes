@@ -64,6 +64,10 @@ HEAD is nothing but simply a pointer, just like a branch is simply a pointer too
 
 So, in one sentence, "HEAD is the parent of your next commit".
 
+[What does `git branch` do?](https://youtu.be/ZDR433b0HJY?t=2826)
+-----------------------------------------------------------------
+`git branch` simply creates a pointer in your Git database. That's it. No copying files, no complicated operations, nothing. It simply creates a pointer that points to the current commit (where the "current commit" is the commit that HEAD points to). The pointer is about 40 bytes, hence, running `git branch branch_name` will simply write about 40 bytes to a file and don't do anything else. That's why `git branch` is a very fast operation.
+
 Source: This [awesome video][Scott Chacon Video Presentation] presentation by Scott Chacon.
 
 [Scott Chacon Video Presentation]: https://youtu.be/ZDR433b0HJY?t=629
