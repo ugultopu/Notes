@@ -37,6 +37,8 @@ So, if we change a file, Git will see different content. This new (changed) cont
 
 ![Manifest after changing a file][Manifest after changing a file]
 
+So, again, **every single commit in Git is a SNAPSHOT OF THE WHOLE REPOSITORY**. Commits are not "diffs" or whatever. Every single commit is a proper whole snapshot of all the content of all the files in the repository. The diffs, etc. are calculated _on the fly_ by comparing the selected commits and finding the diffs _between the commits_.
+
 Source: This [awesome video][Scott Chacon Video Presentation] presentation by Scott Chacon.
 
 [Scott Chacon Video Presentation]: https://youtu.be/ZDR433b0HJY?t=629
