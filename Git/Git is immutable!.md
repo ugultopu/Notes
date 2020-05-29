@@ -43,6 +43,8 @@ As you can observe, since Git stores a snapshot of all files on each commit, the
 
 So how does this makes sense? How come Git is so inefficient, yet arguably the most popular version control system now? Well, Git uses delta compression (the "differential" storage mechanism) when we push the changes to a remote over the network. Git does this so that the changes are transmitted as fast as possible, and stored "on the server" as efficiently as possible. It is not a big deal to "not be efficient" (storage-wise) on the development machine, because not being efficient (storage-wise) on the development machine actually helps with performance (almost instant commit speed, almost instant comparisons, etc).
 
+The way Git finds a commit is through branches, through the "references" (https://youtu.be/ZDR433b0HJY?t=2131)
+
 Source: This [awesome video][Scott Chacon Video Presentation] presentation by Scott Chacon.
 
 [Scott Chacon Video Presentation]: https://youtu.be/ZDR433b0HJY?t=629
