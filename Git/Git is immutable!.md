@@ -39,6 +39,10 @@ So, if we change a file, Git will see different content. This new (changed) cont
 
 So, again, **every single commit in Git is a SNAPSHOT OF THE WHOLE REPOSITORY**. Commits are not "diffs" or whatever. Every single commit is a proper whole snapshot of all the content of all the files in the repository. The diffs, etc. are calculated _on the fly_ by comparing the selected commits and finding the diffs _between the commits_.
 
+As you can observe, since Git stores a snapshot of all files on each commit, there is a lot of waste. That is, on each commit, the whole content of each file that has been changed on that commit is stored (for the files that has not been changed, only a pointer (the SHA-1 checksum, the hash) is stored in the commit manifest (the tree), which points to the old file object in Git's database). This is essentially wasteful right? Because imagine a large file (say 10 MB). Even if we change a single character and commit it, a copy of the whole new version of the file will be stored. That is, if we make 3 commits and if we replace one letter by another letter on each of those commits, 3 * 10 = 30 MB of information will be stored. Whereas had Git was like other version control systems and stored only the "diffs" (the changes, the deltas), only 10 MB + 1 byte + 1 byte ~= 10 MB information needed to be stored.
+
+So how does this makes sense? How come Git is so inefficient, yet arguably the most popular version control system now? Well, Git uses delta compression (the "differential" storage mechanism) when we push the changes to a remote over the network. Git does this so that the changes are transmitted as fast as possible, and stored "on the server" as efficiently as possible. It is not a big deal to "not be efficient" (storage-wise) on the development machine, because not being efficient (storage-wise) on the development machine actually helps with performance (almost instant commit speed, almost instant comparisons, etc).
+
 Source: This [awesome video][Scott Chacon Video Presentation] presentation by Scott Chacon.
 
 [Scott Chacon Video Presentation]: https://youtu.be/ZDR433b0HJY?t=629
