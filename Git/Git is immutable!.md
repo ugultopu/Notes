@@ -23,6 +23,7 @@ Git thinks about data as "snapshots". So, when you say "git add", Git says "I wa
 - The pointer to (the checksum of) the parent commit is included to be able to navigate the commit history.
 - This whole thing has been added to Git's database (the key-value store) and another checksum for this whole thing has been calculated.
 - This final checksum is _the checksum of this commit_. That is, this final checksum is the checksum that we (anybody) refers to this commit from now on.
+- Also to note is that when you commit, `HEAD` starts to point to this new commit, instead of the parent of this new commit, which `HEAD` was pointing to before creating this new commit. If `HEAD` was pointing to a branch (instead of pointing to a commit), `HEAD` simply keeps pointing to that branch (where the branch is nothing but a pointer, just like `HEAD` is nothing but a pointer too), but that branch starts to point to this new commit, instead of the parent of this new commit, which that branch was pointing to before creating this new commit. (Source: https://youtu.be/ZDR433b0HJY?t=2969)
 
 [What happens when you _change a file_ in Git?](https://youtu.be/ZDR433b0HJY?t=1043)
 ------------------------------------------------------------------------------------
