@@ -68,6 +68,11 @@ So, in one sentence, "HEAD is the parent of your next commit".
 -----------------------------------------------------------------
 `git branch` simply creates a pointer in your Git database. That's it. No copying files, no complicated operations, nothing. It simply creates a pointer that points to the current commit (where the "current commit" is the commit that HEAD points to). The pointer is about 40 bytes, hence, running `git branch branch_name` will simply write about 40 bytes to a file and don't do anything else. That's why `git branch` is a very fast operation.
 
+[What does `git checkout` do?](https://youtu.be/ZDR433b0HJY?t=2864)
+-------------------------------------------------------------------
+1. Make `.git/HEAD` (that is, the `HEAD`) point to the branch (or commit) that is specified by the argument to `git checkout`. If the argument was a branch, the output of `cat .git/HEAD` will be `ref: refs/heads/branch-name-goes-here`. From this information, we can find the checksum of the branch (that is, checksum of the commit that the branch points at) by running `cat .git/refs/heads/branch-name-goes-here`. On the other hand, if we checked out a commit, instead of a branch, running `cat .git/HEAD` will simply print out a checksum, the checksum of the commit that `HEAD` currently points to.
+1. Alter the files in the repository so that they will be the same as the snapshot that is described by the commit that `HEAD` currently points to. Remember that since every commit in Git is actually the whole snapshot of whole content of all files, this is very easy for Git to do.
+
 Source: This [awesome video][Scott Chacon Video Presentation] presentation by Scott Chacon.
 
 [Scott Chacon Video Presentation]: https://youtu.be/ZDR433b0HJY?t=629
