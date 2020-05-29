@@ -56,6 +56,8 @@ For example, you run `git add some_file`, then you made more changes on `some_fi
 
 The reason is simple: Git commits whatever it knows about. That is, when you run `git add some_file`, Git _takes a snapshot_ of the file named "some_file". That is, the moment that you run `git add some_file`, is the moment that Git takes a snapshot of the contents of `some_file` and stores those contents in its database. That's it. Git does not _track_ the file or whatever. It simply _takes a snapshot whenever, and only when, you run `git add`_.
 
+`git clone`, by default, gives you every branch of the repository that's on the server. (Source: https://youtu.be/ZDR433b0HJY?t=2627)
+
 Source: This [awesome video][Scott Chacon Video Presentation] presentation by Scott Chacon.
 
 [Scott Chacon Video Presentation]: https://youtu.be/ZDR433b0HJY?t=629
