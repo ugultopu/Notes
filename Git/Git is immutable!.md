@@ -45,6 +45,17 @@ So how does this makes sense? How come Git is so inefficient, yet arguably the m
 
 The way Git finds a commit is through branches, through the "references" (https://youtu.be/ZDR433b0HJY?t=2131). The ".git/refs/heads/" directory has all the references to all the branches of the repository. Accordingly, if you wanted to create a branch (which points at a specific commit), you can really just run `echo ABCDEFG > .git/refs/heads/name-of-your-custom-branch`, where `ABCDEFG` represents the checksum (SHA-1) of the commit that you want the branch named `name-of-your-custom-branch` to point to. (Source: https://youtu.be/ZDR433b0HJY?t=2143)
 
+[Git does not look at your working directory (the file system) at all when you run "git commit"](https://youtu.be/ZDR433b0HJY?t=2299)
+-------------------------------------------------------------------------------------------------------------------------------------
+For example, you run `git add some_file`, then you made more changes on `some_file`, then you ran `git commit`. Git will commit what the file was like at the time that you ran `git add`. You already knew this. A more interesting thing is that, you can:
+
+- Run `git add` on one or more files.
+- Delete some or all of these files by running `rm` (_not_ `git rm`).
+- Run `git commit`.
+- Observe that those files have been committed, even though you removed those files _before committing_ by running `rm`.
+
+The reason is simple: Git commits whatever it knows about. That is, when you run `git add some_file`, Git _takes a snapshot_ of the file named "some_file". That is, the moment that you run `git add some_file`, is the moment that Git takes a snapshot of the contents of `some_file` and stores those contents in its database. That's it. Git does not _track_ the file or whatever. It simply _takes a snapshot whenever, and only when, you run `git add`_.
+
 Source: This [awesome video][Scott Chacon Video Presentation] presentation by Scott Chacon.
 
 [Scott Chacon Video Presentation]: https://youtu.be/ZDR433b0HJY?t=629
