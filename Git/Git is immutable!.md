@@ -24,6 +24,20 @@ Git thinks about data as "snapshots". So, when you say "git add", Git says "I wa
 - This whole thing has been added to Git's database (the key-value store) and another checksum for this whole thing has been calculated.
 - This final checksum is _the checksum of this commit_. That is, this final checksum is the checksum that we (anybody) refers to this commit from now on.
 
+[What happens when you _change a file_ in Git?](https://youtu.be/ZDR433b0HJY?t=1043)
+------------------------------------------------------------------------------------
+As we have stated, there is no concept of "file" in Git. That is, Git does not "version a file". Git versions "a whole repository". That is, there is no concept of version 1, version 2, etc. "for a file".
+
+So, if we change a file, Git will see different content. This new (changed) content will checksum differently (that is, the SHA-1 hash of this new (and different) content will be different than the previous version). Hence, if we want to add this new version of this file, Git will simply:
+
+- Put the _whole content of this file_ to Git's database (the key-value object database).
+- Calculate a checksum _for the whole content of this file_.
+
+**That is, there will be two separate entries (objects) in Git's database with almost the exact same contents (except the changes that we made)**. Only thing is that they will checksum differently, since they will have a minor difference (which is why we are adding the file to Git's staging area after the changes in the first place).
+
+![Manifest after changing a file][Manifest after changing a file]
+
 Source: This [awesome video][Scott Chacon Video Presentation] presentation by Scott Chacon.
 
 [Scott Chacon Video Presentation]: https://youtu.be/ZDR433b0HJY?t=629
+[Manifest after changing a file]: manifest-after-changing-a-file.png
