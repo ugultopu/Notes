@@ -58,6 +58,12 @@ The reason is simple: Git commits whatever it knows about. That is, when you run
 
 `git clone`, by default, gives you every branch of the repository that's on the server. (Source: https://youtu.be/ZDR433b0HJY?t=2627)
 
+[What is HEAD?](https://youtu.be/ZDR433b0HJY?t=2796)
+----------------------------------------------------
+HEAD is nothing but simply a pointer, just like a branch is simply a pointer too. The "special thing" about the HEAD pointer is that whatever commit HEAD points to is the current commit, and hence, that commit is (will be) the parent of the next commit that you will make. Usually (almost always), HEAD will point to a branch (where a branch is simply another pointer).
+
+So, in one sentence, "HEAD is the parent of your next commit".
+
 Source: This [awesome video][Scott Chacon Video Presentation] presentation by Scott Chacon.
 
 [Scott Chacon Video Presentation]: https://youtu.be/ZDR433b0HJY?t=629
