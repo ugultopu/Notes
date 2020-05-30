@@ -82,7 +82,7 @@ If the commit that we are merging into (merging _to_) is reachable from the comm
 ---------------------------------------------------------------------------------
 When the commit (branch) that we are _merging into_ is NOT reachable from the commit that we are _merging from_ (by following the DAG), that will result in a "non fast-forward merge".
 
-"Index" is the same thing as the "Staging Area" in Git. (Source: https://youtu.be/ZDR433b0HJY?t=3343)
+"Index" is the same thing as the "Staging Area" in Git. There is also the "working directory", which is simply the directory that the repository resides in your computer. Git does not care at all about what is in the working directory (except to tell you about which files are untracked and which files are changed. In other words, Git does not care about the working directory at all _for committing purposes_). (Source: https://youtu.be/ZDR433b0HJY?t=3337)
 
 Source: This [awesome video][Scott Chacon Video Presentation] presentation by Scott Chacon.
 
