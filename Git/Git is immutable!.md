@@ -80,7 +80,9 @@ If the commit that we are merging into (merging _to_) is reachable from the comm
 
 [What is a "non fast-forward merge" in Git?](https://youtu.be/ZDR433b0HJY?t=3082)
 ---------------------------------------------------------------------------------
-When the commit (branch) that we are _merging into_ is NOT reachable from the commit that we are _merging from_ (by following the DAG), that will result in a "non fast-forward merge". 
+When the commit (branch) that we are _merging into_ is NOT reachable from the commit that we are _merging from_ (by following the DAG), that will result in a "non fast-forward merge".
+
+"Index" is the same thing as the "Staging Area" in Git. (Source: https://youtu.be/ZDR433b0HJY?t=3343)
 
 Source: This [awesome video][Scott Chacon Video Presentation] presentation by Scott Chacon.
 
