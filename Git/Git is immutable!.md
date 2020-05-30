@@ -78,6 +78,10 @@ So, in one sentence, "HEAD is the parent of your next commit".
 -----------------------------------------------------------------------------
 If the commit that we are merging into (merging _to_) is reachable from the commit we are merging (merging _from_), that is, following the DAG (Directed Acyclic Graph), if we are able to reach to the commit that we are _merging into_ from the commit that we are _merging from_, then the merge will be completed simply by moving the branch pointer that points to the branch that we are merging into, to the commit that we are merging from. This makes perfect sense because what "merging" is, essentially making the thing that we _merge into_ look like the thing that we are _merging from_. If the commit that we are merging into is reachable from the commit that we are merging from by following the DAG, that means that rest assured, we can merge by knowing that there won't be any merge conflicts. This type of merging, that is, the merge where the commit (the branch) that we merge into is reachable (by following the DAG) from the commit that we are merging from, hence all that we need is a (branch) pointer fast-forwarding from the commit (the branch) that we are merging into to the commit that we are merging from, is called a "fast-forward merge". This is the easiest type of merging in Git.
 
+[What is a "non fast-forward merge" in Git?](https://youtu.be/ZDR433b0HJY?t=3082)
+---------------------------------------------------------------------------------
+When the commit (branch) that we are _merging into_ is NOT reachable from the commit that we are _merging from_ (by following the DAG), that will result in a "non fast-forward merge". 
+
 Source: This [awesome video][Scott Chacon Video Presentation] presentation by Scott Chacon.
 
 [Scott Chacon Video Presentation]: https://youtu.be/ZDR433b0HJY?t=629
